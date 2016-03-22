@@ -29,20 +29,23 @@ app
   })
 
   .get('/', (req, res) => {
-    res.send('you are at root!')
+    res.sendfile('src/root.html')
   })
 
   .get('/users', (req, res) => {
     let filteredUsers = [...users]
 
-    if (req.query.ageMin)
+    if (req.query.ageMin) {
       filteredUsers = filteredUsers.filter((user) => user.age >= req.query.ageMin)
+    }
 
-    if (req.query.ageMax)
+    if (req.query.ageMax) {
       filteredUsers = filteredUsers.filter((user) => user.age <= req.query.ageMax)
+    }
 
-    if (req.query.sortBy)
+    if (req.query.sortBy) {
       filteredUsers = _.sortBy(filteredUsers, req.query.sortBy)
+    }
 
     res.json(filteredUsers)
   })
