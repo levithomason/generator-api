@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel src --out-dir dist --watch",
-    "serve": "nodemon dist/main.js --watch dist",
-    "start": "npm run build & npm run serve"
+    "build": "babel src --out-dir dist",
+    "build:watch": "npm run build -- --watch",
+    "postinstall": "npm run build",
+    "start": "node dist/main.js",
+    "start:watch": "nodemon dist/main.js --watch dist",
+    "dev": "npm run build:watch & npm run start:watch"
   },
   "engines": {
     "node": "5",
