@@ -8,6 +8,10 @@
     "serve": "nodemon dist/main.js --watch dist",
     "start": "npm run build & npm run serve"
   },
+  "engines": {
+    "node": "5",
+    "npm": "3"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
